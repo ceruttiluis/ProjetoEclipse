@@ -15,7 +15,7 @@ public class TesteGameMania {
 	
 	//Inicio
 	@Before
-	public void Configurarteste() {
+	public void TesteConfig() {
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\ChromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -34,7 +34,9 @@ public class TesteGameMania {
 		
 	//finalização
 	@After
+		public void QuitConfig() {
 		
+	}
 	
 	
 	
