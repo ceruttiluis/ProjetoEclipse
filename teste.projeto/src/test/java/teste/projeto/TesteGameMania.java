@@ -26,16 +26,39 @@ public class TesteGameMania {
 	//teste
 	@Test
 	public void TesteNavegabilidade () {
-		driver.get("https://informatica.sp.senai.br/");
-		driver.findElement(By.id("Busca1_txtFiltro")).sendKeys("Excel");
+		
+		try {
+		driver.get("http://localhost:4200/");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//nav[1]/div[4]/a")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.id("email")).sendKeys("luis@email.co");
+		Thread.sleep(2000);
+		driver.findElement(By.id("email")).clear();
+		driver.findElement(By.id("email")).sendKeys("luis@email.com");
+		driver.findElement(By.id("password")).sendKeys("senhaluis");
+		Thread.sleep(3000);
+		driver.findElement(By.id("enviar")).sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		
+			
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} 
+		
+		
+		//driver.findElement(By.id("Busca1_txtFiltro")).sendKeys("Excel");
 		//driver.findElement(By.id("Busca1_btnBusca")).click();
-		driver.findElement(By.id("Busca1_btnBusca")).sendKeys(Keys.ENTER);
+		//driver.findElement(By.id("Busca1_btnBusca")).sendKeys(Keys.ENTER);
+		//driver.findElement(By.xpath("//*[@id=\"nav\"]/li[7]/a")).click();
 	}
 		
 	//finalização
 	@After
-		public void QuitConfig() {
+		public void EndConfig() {
 		
+		driver.quit();
 	}
 	
 	
